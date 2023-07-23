@@ -1,0 +1,36 @@
+/* @import "leaflet/dist/leaflet.css"; */
+
+.map {
+  grid-column: col-start 6 / col-start 9;
+
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  padding: 0.3rem;
+  position: relative;
+  z-index: 1;
+}
+@media only screen and (max-width: 1300px) {
+  .map {
+    grid-column: col-start 5 / col-start 9;
+
+    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+    padding: 0.3rem;
+    position: relative;
+    z-index: 1;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .map {
+    grid-column: center-start / col-start 9;
+
+    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+    padding: 0.3rem;
+    position: relative;
+    z-index: 1;
+  }
+}
+.map-box {
+  background-color: beige;
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+}

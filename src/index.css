@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media only screen and (min-width: 120.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+body {
+  box-sizing: border-box;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-weight: 300;
+  line-height: 1.6;
+  background-color: #1e1f23;
+}

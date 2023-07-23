@@ -1,0 +1,49 @@
+.overview {
+  background-color: black;
+  grid-column: center-start/col-start 6;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  padding: 0.3rem;
+}
+@media only screen and (max-width: 1300px) {
+  .overview {
+    background-color: black;
+    grid-column: center-start/col-start 9;
+    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+    padding: 0.3rem;
+  }
+}
+.box {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  background-color: #45474b;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+}
+.btn {
+  font-size: 2.5rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
+  color: #f1f6f7;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background-color: #f1f6f7;
+  color: #45474b;
+}
+.btn--active {
+  background-color: #cbe7ea;
+  color: #45474b;
+}
+.chart {
+  height: 100%;
+  width: 100%;
+}

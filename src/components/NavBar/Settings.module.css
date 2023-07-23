@@ -1,0 +1,87 @@
+.overlay,
+.modal {
+  display: flex;
+  justify-content: center;
+
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.overlay {
+  position: fixed;
+  background-color: rgb(16, 18, 20, 90%);
+}
+.modal {
+  position: absolute;
+}
+.card {
+  position: relative;
+  z-index: 11;
+
+  margin-top: 6rem;
+  background-color: #212529;
+  border-radius: 1rem;
+  border: 1px solid #495057;
+
+  height: min-content;
+  width: 60rem;
+}
+.modal__header {
+  font-size: 2.2rem;
+  border-bottom: 1px solid #495057;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.modal__btn {
+  font-size: 3rem;
+  color: #f7f6f7;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.select {
+  gap: 1rem;
+  height: min-content;
+  margin: 1rem;
+  border-radius: 1rem;
+  color: #333333;
+  background-color: #313438;
+  position: relative;
+
+  display: grid;
+  align-items: center;
+  /* pointer-events: none; */
+}
+.label {
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 1.4rem;
+  color: #e84162;
+  position: absolute;
+}
+.range {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  color: #333333;
+  background-color: #313438;
+  position: relative;
+  height: 6rem;
+  /* width: 100%; */
+}
+
+.inputRange {
+  width: 90%;
+}

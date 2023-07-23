@@ -1,0 +1,31 @@
+.slider-box {
+  position: relative;
+  z-index: 1;
+
+  background-color: transparent;
+}
+.slider-box__button--prev {
+  position: absolute;
+  font-size: 2rem;
+  left: -1rem;
+  bottom: 90%;
+  height: 4rem;
+  width: 4rem;
+  background-color: #e84162;
+  border-radius: 40% 40% 90% 40%;
+  color: #fff;
+
+  border: none;
+}
+.slider-box__button--next {
+  position: absolute;
+  font-size: 2rem;
+  right: -1rem;
+  bottom: 90%;
+  height: 4rem;
+  width: 4rem;
+  background-color: #e84162;
+  border-radius: 40% 40% 40% 90%;
+  border: none;
+  color: #fff;
+}

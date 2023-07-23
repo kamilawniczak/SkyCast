@@ -1,0 +1,21 @@
+.forecastList {
+  grid-column: 1 / col-start 9;
+
+  padding: 0.3rem;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+}
+.box {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  background-color: rgba(69, 71, 75, 70%);
+  padding: 2rem 1rem;
+  /* background-color: #45474b; */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  gap: 2rem;
+}

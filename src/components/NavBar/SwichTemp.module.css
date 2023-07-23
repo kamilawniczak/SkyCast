@@ -1,0 +1,5 @@
+.position {
+  grid-column: 8/9;
+  justify-self: end;
+  width: 60%;
+}

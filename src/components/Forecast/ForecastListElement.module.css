@@ -1,0 +1,54 @@
+.item {
+  background-color: #45474b;
+  color: #f1f6f7;
+  width: 98%;
+  height: minmax(min-content, 8rem);
+  margin: 1rem auto;
+  border-radius: 10rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+}
+.item:nth-of-type(even) {
+  background-color: #2e4572;
+}
+.item:hover {
+  background-color: rgba(203, 231, 234, 70%);
+  color: black;
+}
+.item-active {
+  outline: 4px solid rgb(253, 24, 24);
+}
+.item--active--Day {
+  background-color: rgba(203, 231, 234, 70%);
+  color: black;
+}
+.icon {
+  font-size: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.temp {
+  text-align: center;
+  font-size: 2.1rem;
+}
+.dayContainer {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+}
+.dayContainer_Day {
+  font-size: 3rem;
+}
+.dayContainer_Month {
+  font-size: 3rem;
+  color: #e84162;
+}
+
+.dayContainer_DayShort {
+  margin-right: 1rem;
+}
