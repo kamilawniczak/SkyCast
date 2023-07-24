@@ -24,7 +24,9 @@ const Map = ({ position, zoom, info }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={position}>
-        <Popup>{info}</Popup>
+        <Popup>
+          <span style={{ fontSize: "2rem" }}>{info}</span>
+        </Popup>
       </Marker>
       <ChangeView center={position} />
       <SetViewOnClick animateRef={animateRef} />
