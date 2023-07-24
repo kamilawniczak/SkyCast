@@ -9,11 +9,10 @@
   bottom: 0;
 }
 .overley {
-  position: fixed;
   background-color: rgb(16, 18, 20, 90%);
 }
 .modal {
-  position: absolute;
+  background-color: rgb(16, 18, 20, 30%);
 }
 .modal__box {
   position: absolute;

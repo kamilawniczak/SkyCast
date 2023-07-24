@@ -1,11 +1,15 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet-defaulticon-compatibility";
+import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import ChangeView from "./LeafletOptions/ChangeView";
 import SetViewOnClick from "./LeafletOptions/SetViewOnClick";
 import { useRef } from "react";
 
-const Map = ({ position, zoom }) => {
+const Map = ({ position, zoom, info }) => {
   const animateRef = useRef(true);
 
   return (
@@ -20,9 +24,7 @@ const Map = ({ position, zoom }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={position}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
+        <Popup>{info}</Popup>
       </Marker>
       <ChangeView center={position} />
       <SetViewOnClick animateRef={animateRef} />
@@ -31,3 +33,6 @@ const Map = ({ position, zoom }) => {
 };
 
 export default Map;
+{
+  /* <FontAwesomeIcon icon={faLocationDot} /> */
+}

@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./MapContainer.module.css";
 import Map from "./Map";
 
-const MapContainer = ({ navData }) => {
+const MapContainer = ({ navData, info }) => {
   // const position = [navData.lon, navData.lat];
   const position = { lat: navData.lat, lng: navData.lon };
   // const position = [51.505, -0.09];
@@ -12,7 +12,7 @@ const MapContainer = ({ navData }) => {
   return (
     <section className={classes.map}>
       <div className={classes["map-box"]}>
-        <Map position={position} zoom={zoom} />
+        <Map position={position} zoom={zoom} info={info} />
       </div>
     </section>
   );

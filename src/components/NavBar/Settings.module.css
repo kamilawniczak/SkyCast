@@ -1,5 +1,6 @@
 .overlay,
 .modal {
+  position: fixed;
   display: flex;
   justify-content: center;
 
@@ -10,11 +11,10 @@
   bottom: 0;
 }
 .overlay {
-  position: fixed;
   background-color: rgb(16, 18, 20, 90%);
 }
 .modal {
-  position: absolute;
+  background-color: rgb(16, 18, 20, 30%);
 }
 .card {
   position: relative;
@@ -78,10 +78,11 @@
   color: #333333;
   background-color: #313438;
   position: relative;
-  height: 6rem;
+  height: min-content;
   /* width: 100%; */
 }
 
 .inputRange {
+  margin-top: 3.5rem;
   width: 90%;
 }

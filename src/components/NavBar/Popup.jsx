@@ -45,12 +45,12 @@ const Popup = ({ state, globalState, dispach, globalDispach }) => {
 
   return (
     <div className={classes.modal}>
-      <div
+      <span
         className={classes.overley}
         onClick={() => {
           dispach({ type: "toggleModal" });
         }}
-      ></div>
+      ></span>
       <div className={classes["modal__box"]}>
         <div className={classes["modal__header"]}>
           <span>Search Locations</span>
