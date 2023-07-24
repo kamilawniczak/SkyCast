@@ -31,7 +31,8 @@ html {
 }
 body {
   box-sizing: border-box;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+  /* font-family: Comic Sans MS, Comic Sans, cursive; */
+  font-family: "Times New Roman", Times, serif;
   font-weight: 300;
   line-height: 1.6;
   background-color: #1e1f23;
