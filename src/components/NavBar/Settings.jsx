@@ -3,7 +3,6 @@ import classes from "./Settings.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
-import Async, { useAsync } from "react-select/async";
 
 const options_Temp = [
   { value: "celsius", label: "Celsius °C" },

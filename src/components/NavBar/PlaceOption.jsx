@@ -19,7 +19,7 @@ const PlaceOption = ({ place, dispach, globalDispach, isSelected }) => {
     loading: true,
   };
   return (
-    <li className={classes["list-element"]}>
+    <li className={classes["list-element"]} tabIndex="0">
       <div
         className={classes.box}
         onClick={() => {

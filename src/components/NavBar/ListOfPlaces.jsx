@@ -11,6 +11,7 @@ const ListOfPlaces = ({ state, globalState, dispach, globalDispach }) => {
     <ul className={classes.list}>
       {state.data.map((place) => (
         <PlaceOption
+        
           isSelected={isSelected(place.properties.formatted)}
           place={place}
           dispach={dispach}

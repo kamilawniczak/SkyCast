@@ -16,8 +16,6 @@ const Popup = ({ state, globalState, dispach, globalDispach }) => {
     inputId.current.focus();
   }, [inputId]);
 
-  useKey("escape", () => dispach({ type: "toggleModal" }));
-
   const handleClick = () => {
     if (state.data.length === 0) {
       dispach({ type: "error", payload: "Empty input !!!" });
@@ -37,11 +35,15 @@ const Popup = ({ state, globalState, dispach, globalDispach }) => {
       formatted: info.formatted,
     };
     dispach({ type: "selectPlace", payload: selectedPlaceInfo });
+
     globalDispach({
       type: "receive",
       payload: selectedPlaceInfo,
     });
   };
+
+  useKey("escape", () => dispach({ type: "toggleModal" }));
+  useKey("enter", () => handleClick());
 
   return (
     <div className={classes.modal}>
