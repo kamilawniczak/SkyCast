@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 const useFetchv2 = (query, dispach) => {
   const KEY = "f60ffd91b8244000ba2e9fdb8fd59f61";
   useEffect(() => {
+    dispach({ type: "loading", payload: true });
     const controller = new AbortController();
 
     const fetchMovies = async () => {

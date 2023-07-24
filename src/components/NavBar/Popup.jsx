@@ -9,6 +9,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import ListOfPlaces from "./ListOfPlaces";
 import { useKey } from "../Hooks/useKey";
+import Loader from "../Loader";
 
 const Popup = ({ state, globalState, dispach, globalDispach }) => {
   const inputId = useRef();
@@ -83,7 +84,18 @@ const Popup = ({ state, globalState, dispach, globalDispach }) => {
             </button>
           </div>
           {state.error && <Error error={state.error} />}
-          {state.data.length === 0 || (
+          {state.loading && (
+            <div className={classes.loader}>
+              <Loader
+                styleOverflow={{
+                  position: "relative",
+                  height: "7rem",
+                  borderRadius: "2rem",
+                }}
+              />
+            </div>
+          )}
+          {state.data.length === 0 || state.loading || (
             <div className={classes["list-group"]}>
               <ListOfPlaces
                 state={state}
