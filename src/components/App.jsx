@@ -16,15 +16,18 @@ import LoadingScreenMap from "./Map/LoadingScreenMap";
 import LoadingScreenOverview from "./Overview/LoadingScreenOverview";
 import LoadingScreenForecast from "./Forecast/LoadingScreenForecast";
 
+const defaultPlace = {
+  lat: 51.1089776,
+  lon: 17.0326689,
+  formatted: "Wrocław, Lower Silesian Voivodeship, Poland",
+};
+
 const initialState = {
   error: "",
   loading: true,
   refresh: false,
-  data: {
-    lat: 51.1089776,
-    lon: 17.0326689,
-    formatted: "Wrocław, Lower Silesian Voivodeship, Poland",
-  },
+  data: {},
+  defaultData: defaultPlace,
   meteoData: {},
   favourite: [],
   settings: {
@@ -106,6 +109,10 @@ const reducer = (state, action) => {
         leftRefreshTime: action.payload.refreshTime,
         settings: action.payload,
       };
+    case "setDefaultData":
+      if (state.defaultData.formatted === action.payload.formatted)
+        return { ...state, defaultData: {} };
+      return { ...state, defaultData: action.payload };
     case "loading":
       return { ...state, loading: action.payload, error: "" };
     case "error":
@@ -126,9 +133,14 @@ const App = (props) => {
     units: state.units,
   };
   useTimer(dispach, state.leftRefreshTime);
+
   useEffect(() => {
     state.settings = useStorage("get", "settings") || state.settings;
     state.favourite = useStorage("get", "favourite") || state.favourite;
+    state.defaultData = useStorage("get", "defaultData") || state.data;
+    state.data = state.defaultData;
+    if (JSON.stringify(state.data) === JSON.stringify({}))
+      state.data = defaultPlace;
   }, []);
 
   useEffect(() => {
@@ -137,6 +149,9 @@ const App = (props) => {
   useEffect(() => {
     useStorage("set", "favourite", state.favourite);
   }, [state.favourite]);
+  useEffect(() => {
+    useStorage("set", "defaultData", state.defaultData);
+  }, [state.defaultData]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -179,6 +194,9 @@ const App = (props) => {
             waetherData={statetForInfo}
             currentHour={state.currentHour}
             isLoading={state.loading}
+            currentSelectedPlace={state.data}
+            defaultData={state.defaultData}
+            dispach={dispach}
           />
         )}
         {state.loading ? (

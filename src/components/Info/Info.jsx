@@ -1,19 +1,32 @@
 import React, { useMemo } from "react";
 import classes from "./Info.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark as regular } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as solid } from "@fortawesome/free-solid-svg-icons";
 
 import ListOfTiles from "./ListOfTiles";
 import { useWeatherIcon } from "../Hooks/useWeatherIcon";
 
-const addLeadingZero = (num) => (num < 10 ? `0${num}` : num);
-const convertToNiceTime = (dateString) => {
-  const date = new Date(dateString);
-  const hours = date.getHours();
-  const minute = date.getMinutes();
-
-  return `${addLeadingZero(hours)}:${addLeadingZero(minute)}`;
+// const addLeadingZero = (num) => (num < 10 ? `0${num}` : num);
+const options = {
+  hour: "numeric",
 };
+// const convertToNiceTime = (dateString) => {
+//   // const date = new Date(dateString);
+//   // const hours = date.getHours();
+//   // const minute = date.getMinutes();
 
-const Info = ({ waetherData, currentHour, isLoading }) => {
+//   return `${addLeadingZero(hours)}:${addLeadingZero(minute)}`;
+// };
+
+const Info = ({
+  waetherData,
+  currentHour,
+  isLoading,
+  defaultData,
+  currentSelectedPlace,
+  dispach,
+}) => {
   const [icon, description] = useWeatherIcon(
     waetherData.meteoData.current_weather?.weathercode
   );
@@ -32,7 +45,7 @@ const Info = ({ waetherData, currentHour, isLoading }) => {
     currentHour
   );
 
-  const splitData = waetherData?.data?.split(",");
+  const splitData = waetherData?.data.split(",");
   const country = splitData[splitData.length - 1];
   const place = splitData.slice(0, splitData.length - 1);
 
@@ -47,7 +60,10 @@ const Info = ({ waetherData, currentHour, isLoading }) => {
     const precipitation = hourlyMeteoData?.precipitation?.at(index);
     const windDirection = hourlyMeteoData?.winddirection_10m?.at(index);
     const surface_pressure = hourlyMeteoData?.surface_pressure?.at(index);
-    const time = convertToNiceTime(hourlyMeteoData?.time?.at(index));
+    // const time = convertToNiceTime(hourlyMeteoData?.time?.at(index));
+    const time = Intl.DateTimeFormat("en-US", options).format(
+      new Date(hourlyMeteoData?.time?.at(index))
+    );
     return {
       id,
       temp,
@@ -64,6 +80,10 @@ const Info = ({ waetherData, currentHour, isLoading }) => {
   const hourlyMeteoDataArray = new Array(24)
     .fill(0)
     .map((_, index) => handleInfo(index));
+
+  const faBookmark =
+    waetherData?.data === defaultData.formatted ? solid : regular;
+
   return (
     <section className={classes.info}>
       <div className={classes.main}>
@@ -129,6 +149,21 @@ const Info = ({ waetherData, currentHour, isLoading }) => {
             [hourlyMeteoDataArray]
           )}
         </div>
+        <button className={classes.btn}>
+          <FontAwesomeIcon
+            icon={faBookmark}
+            onClick={() =>
+              dispach({
+                type: "setDefaultData",
+                payload: {
+                  lat: waetherData?.meteoData?.latitude,
+                  lon: waetherData?.meteoData?.longitude,
+                  formatted: waetherData?.data,
+                },
+              })
+            }
+          />
+        </button>
       </div>
     </section>
   );
