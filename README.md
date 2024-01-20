@@ -25,6 +25,9 @@ To install the necessary dependencies, run the following command in your termina
 ```bash
 npm install
 
+```
+
+
 
 ![sk góra](https://github.com/kamilawniczak/SkyCast/assets/113726168/d8ecd3e8-0a36-49c2-aea3-3c57d743c618)
 ![sk dół](https://github.com/kamilawniczak/SkyCast/assets/113726168/80b3dd9e-4d45-4dfc-9583-c680532183a1)
