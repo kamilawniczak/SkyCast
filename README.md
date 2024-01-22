@@ -1,7 +1,7 @@
-# UniChat Weather App
+# SkyCast Weather App
 
 ## Overview
-UniChat is a weather application that provides real-time weather updates. It uses a variety of technologies and libraries to provide an interactive and user-friendly experience.
+SkyCast is a weather application that provides real-time weather updates. It uses a variety of technologies and libraries to provide an interactive and user-friendly experience.
 
 ## Key Features
 - **Interactive Maps**: Using `leaflet` and `react-leaflet`, UniChat provides interactive maps for weather visualization.
